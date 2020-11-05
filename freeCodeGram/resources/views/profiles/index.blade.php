@@ -7,12 +7,12 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <div><h1>{{ $user->username }}</h1></div>
-                <a href="#">Add New Post</a>
+                <a href="/p/create">Add New Post</a>
             </div>
             <div class="d-flex">
-                <div><strong>339</strong> публикаций</div>
-                <div><strong>59,1тыс.</strong> подписчиков</div>
-                <div><strong>287</strong> подписок</div>
+                <div class="col-4"><strong>{{ $user->posts->count() }}</strong> posts</div>
+                <div class="col-4"><strong>59,1тыс.</strong> подписчиков</div>
+                <div class="col-4"><strong>287</strong> подписок</div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>
@@ -22,8 +22,8 @@
     </div>
     <div class="row">
         @foreach($user->posts as $post)
-        <div class="col-4">
-            <img src="/storage/{{ $post->image }}" alt="">
+        <div class="col-4 pb-4">
+            <a href="/p/{{ $post->id }}"><img src="/storage/{{ $post->image }}" class="w-100" alt=""></a>
         </div>
         @endforeach
     </div>
