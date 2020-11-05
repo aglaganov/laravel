@@ -9,10 +9,11 @@
                 <div><h1>{{ $user->username }}</h1></div>
                 <a href="/p/create">Add New Post</a>
             </div>
+            <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
             <div class="d-flex">
-                <div class="col-4"><strong>{{ $user->posts->count() }}</strong> posts</div>
-                <div class="col-4"><strong>59,1тыс.</strong> подписчиков</div>
-                <div class="col-4"><strong>287</strong> подписок</div>
+                <div class="col-2"><strong>{{ $user->posts->count() }}</strong> posts</div>
+                <div class="col-2"><strong>59,1тыс.</strong> подписчиков</div>
+                <div class="col-2"><strong>287</strong> подписок</div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>

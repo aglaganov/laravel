@@ -22,7 +22,7 @@
                     @enderror
                 </div>
                 <div class="form-group row">
-                    <label for="caption" class="col-md-4 col-form-label">Image</label>
+                    <label for="image" class="col-md-4 col-form-label">Image</label>
                     <input type="file" class="form-control-file" id="image" name="image">
                     @error('image')
                         <strong>{{ $message }}</strong>
