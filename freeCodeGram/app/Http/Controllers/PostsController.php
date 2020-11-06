@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -40,5 +41,11 @@ class PostsController extends Controller
     public function show(\App\Models\Post $post)
     {
         return view('posts.show', compact('post'));
+    }
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        $posts = Post::whereIn('user_id', $users)->latest()->get();
+        return view('posts.index', compact('posts'));
     }
 }
